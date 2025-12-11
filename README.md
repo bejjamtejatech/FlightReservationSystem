@@ -27,25 +27,25 @@ Users can list all reservations made under their name.
 
 1. *Separation of Concerns*
    - Flight and Reservation are simple model/entity classes.
-   - `FlightService` contains all business logic such as searching flights, validating seat availability, and booking reservations.
-   - `FlightReservationApp` handles only user interaction (input/output).  
+   - FlightService contains all business logic such as searching flights, validating seat availability, and booking reservations.
+   - FlightReservationApp handles only user interaction (input/output).  
      This separation improves testability and maintainability.
 
 2. *In-Memory Data Storage*
-   - As required, the application uses simple in-memory `List<Flight>` and `List<Reservation>` collections.
+   - As required, the application uses simple in-memory List Flight and List<Reservation> collections.
    - Data does not persist after stopping the application, matching assessment guidelines.
 
 3. *Validation & Error Handling*
-   - Prevents overbooking by checking `availableSeats` before creating a reservation.
+   - Prevents overbooking by checking availableSeats before creating a reservation.
    - Ensures requested seats > 0.
    - Provides console messages when operations fail.
 
 4. *Use of Java Date/Time API*
-   - `LocalDateTime` ensures proper flight date comparison.
+   - LocalDateTime ensures proper flight date comparison.
    - Users input date only; time defaults to midnight for accurate matching.
 
 5. *Testability*
-   - `FlightService` is fully isolated from user interface, making it easy to test using JUnit.
+   - FlightService is fully isolated from user interface, making it easy to test using JUnit.
    - Methods are pure functions with clear inputs and outputs.
 
 6. *Stream API Usage*
@@ -63,11 +63,11 @@ If this system were deployed as a real airline booking service, the following en
    - In real systems, multiple users may try to book the same seat simultaneously.
    - Requires row-level locking, transactions, or optimistic concurrency control.
 
-3. *REST API Implementation**
+3. *REST API Implementation*
    - The console application would be replaced with REST endpoints using Spring Boot.
    - UI could become a web or mobile interface.
 
-4. *Authentication & Authorization**
+4. *Authentication & Authorization*
    - Users must log in.
    - Bookings should only be accessible by the user who created them.
 
